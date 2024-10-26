@@ -1,18 +1,19 @@
-export async function fetchEvents({queryKey}) {
-    console.log(queryKey)
+export async function fetchEvents({searchTerm, signal}) {
+    // console.log('signal',signal)
+    // console.log(queryKey)
     
     let url = 'http://localhost:3000/events'
     
-    const [_, {search}={}] = queryKey
+    // const [_, {search}={}] = queryKey
 
-    if(/^[\s]*$/.test(search)){
-      return []
-    }
+    // if(/^[\s]*$/.test(searchTerm)){ // 정규식 입력 검색어가 공백포함 아무것도 없을때
+    //   return []
+    // }
 
-    if(search){
-        url = `http://localhost:3000/events?search=${search}`
+    if(searchTerm){
+        url = `http://localhost:3000/events?search=${searchTerm}`
     }
-    const response = await fetch(url);
+    const response = await fetch(url,{signal});
 
     if (!response.ok) {
       const error = new Error('An error occurred while fetching the events');
