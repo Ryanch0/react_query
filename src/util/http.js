@@ -1,8 +1,16 @@
-export async function fetchEvents(searchTerm) {
-    console.log(searchTerm.signal)
+export async function fetchEvents({queryKey}) {
+    console.log(queryKey)
+    
     let url = 'http://localhost:3000/events'
-    if(searchTerm){
-        url = `http://localhost:3000/events?search=${searchTerm}`
+    
+    const [_, {search}={}] = queryKey
+
+    if(/^[\s]*$/.test(search)){
+      return []
+    }
+
+    if(search){
+        url = `http://localhost:3000/events?search=${search}`
     }
     const response = await fetch(url);
 

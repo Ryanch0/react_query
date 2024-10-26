@@ -11,17 +11,14 @@ export default function FindEventSection() {
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['events', { search: searchTerm }],
-    queryFn: () => fetchEvents(searchTerm)
+    queryFn: fetchEvents
   })
 
   function handleSubmit(event) {
     event.preventDefault();
     const search = searchElement.current.value
-    if(search === ''){
-      return;
-    }
+
     setSeachTerm(search)
-    console.log(data)
   }
 
   let content = <p>Please enter a search term and to find events.</p>

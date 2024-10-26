@@ -10,6 +10,7 @@ export default function NewEventsSection() {
     queryKey: ['events'],
     queryFn: fetchEvents,
   })
+  console.log(data)
 
   let content;
 
@@ -18,6 +19,7 @@ export default function NewEventsSection() {
   }
 
   if (isError) {
+    console.log(error)
     content = (
       <ErrorBlock title="An error occurred" message={error.info?.message || 'Failed'} />
     );
