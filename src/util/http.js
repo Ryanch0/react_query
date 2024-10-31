@@ -6,7 +6,6 @@ export const queryClient = new QueryClient()
 export async function fetchEvents({ search, signal, max }) {
     // console.log('signal',signal)
     // console.log(queryKey)
-
     let url = 'http://localhost:3000/events'
 
     // const [_, {search}={}] = queryKey

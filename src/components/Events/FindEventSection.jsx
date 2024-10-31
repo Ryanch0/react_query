@@ -18,7 +18,6 @@ export default function FindEventSection() {
   function handleSubmit(event) {
     event.preventDefault();
     const search = searchElement.current.value
-
     setSeachTerm(search)
   }
   
