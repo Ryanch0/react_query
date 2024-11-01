@@ -20,7 +20,6 @@ export async function fetchEvents({ search, signal, max }) {
     } else if (max) {
         url = `http://localhost:3000/events?max=${max}`
     }
-
     const response = await fetch(url, { signal });
 
     if (!response.ok) {
