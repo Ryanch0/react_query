@@ -20,10 +20,6 @@ export default function EventForm({ inputData, onSubmit, children }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const newData = formData.entries()
-    console.log(newData)
-    console.log('FORMDATA',formData)
-    console.log('DATA', data)
     onSubmit({ ...data, image: selectedImage });
   }
 
